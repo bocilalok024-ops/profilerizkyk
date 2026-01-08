@@ -4,129 +4,436 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofolio | Rizky Kurniawan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #7c3aed;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --gray-light: #e2e8f0;
+            --success: #10b981;
+            --gradient: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: #f5f7fa;
-            color: #333;
+            background-color: var(--light);
+            color: var(--dark);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
+        /* Header dengan animasi gradien */
         header {
-            background: #0f172a;
-            color: #fff;
-            padding: 60px 20px;
+            background: var(--gradient);
+            color: white;
+            padding: 100px 20px 120px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,224L48,218.7C96,213,192,203,288,186.7C384,171,480,149,576,154.7C672,160,768,192,864,192C960,192,1056,160,1152,138.7C1248,117,1344,107,1392,101.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom center;
+            background-size: cover;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
-        header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            margin-bottom: 30px;
+            font-weight: 300;
         }
 
+        .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 500;
+            margin-top: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Main content */
         section {
-            max-width: 1000px;
-            margin: 40px auto;
+            max-width: 1200px;
+            margin: -60px auto 40px;
             padding: 0 20px;
         }
 
         .about, .projects {
-            background: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            margin-bottom: 30px;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about::before, .projects::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--gradient);
         }
 
         h2 {
-            margin-bottom: 20px;
-            color: #0f172a;
+            margin-bottom: 25px;
+            color: var(--dark);
+            font-size: 2.2rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
+        h2 i {
+            color: var(--primary);
+        }
+
+        .about p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        .highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Grid proyek */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
         }
 
         .project-card {
-            background: #f1f5f9;
-            padding: 20px;
-            border-radius: 8px;
-            transition: 0.3s;
+            background: white;
+            padding: 30px 25px;
+            border-radius: 16px;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--gray-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient);
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
 
+        .project-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .project-card h3 i {
+            color: var(--primary);
+        }
+
+        .project-card p {
+            color: var(--gray);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .project-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        /* Skills section */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            color: var(--primary-dark);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            border: 1px solid #bae6fd;
+        }
+
+        /* Footer */
         footer {
             text-align: center;
-            padding: 20px;
-            background: #0f172a;
-            color: #fff;
-            margin-top: 40px;
-            font-size: 0.9rem;
+            padding: 40px 20px;
+            background: var(--dark);
+            color: white;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+
+        /* Animasi */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animated {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        /* Responsif */
+        @media (max-width: 768px) {
+            header {
+                padding: 80px 20px 100px;
+            }
+
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
+
+            section {
+                margin: -40px auto 30px;
+            }
+
+            .about, .projects {
+                padding: 30px 25px;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Rizky Kurniawan</h1>
-        <p>Siswa Teknik Komputer dan Telekomunikasi<br>SMKS 1 Barunawati</p>
+        <div class="header-content">
+            <h1 class="animated">Rizky Kurniawan</h1>
+            <p class="subtitle animated delay-1">Siswa Teknik Komputer dan Telekomunikasi</p>
+            <div class="badge animated delay-2">
+                <i class="fas fa-school"></i> SMKS 1 Barunawati
+            </div>
+        </div>
     </header>
 
     <section>
-        <div class="about">
-            <h2>Tentang Saya</h2>
+        <div class="about animated">
+            <h2><i class="fas fa-user"></i> Tentang Saya</h2>
             <p>
-                Saya adalah siswa jurusan <strong>Teknik Komputer dan Telekomunikasi</strong> di 
-                <strong>SMKS 1 Barunawati</strong>. Saya memiliki ketertarikan dalam bidang komputer, 
+                Saya adalah siswa jurusan <span class="highlight">Teknik Komputer dan Telekomunikasi</span> di 
+                <span class="highlight">SMKS 1 Barunawati</span>. Saya memiliki ketertarikan mendalam dalam bidang komputer, 
                 jaringan, dan pengembangan website. Saya terbiasa bekerja secara teliti, bertanggung jawab, 
-                dan siap belajar hal baru di dunia teknologi.
+                dan selalu bersemangat untuk mempelajari teknologi baru.
             </p>
+            
+            <div class="skills">
+                <div class="skill-tag">Hardware & PC Assembly</div>
+                <div class="skill-tag">Jaringan Komputer</div>
+                <div class="skill-tag">Web Development</div>
+                <div class="skill-tag">Troubleshooting</div>
+                <div class="skill-tag">Configuration</div>
+            </div>
         </div>
 
-        <div class="projects">
-            <h2>Projek yang Pernah Dilaksanakan</h2>
+        <div class="projects animated delay-1">
+            <h2><i class="fas fa-code-branch"></i> Projek yang Pernah Dilaksanakan</h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    <h3>Merakit PC</h3>
-                    <p>Merakit komputer dari komponen hardware hingga siap digunakan dengan baik.</p>
+                    <div class="project-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3><i class="fas fa-toolbox"></i> Merakit PC</h3>
+                    <p>Merakit komputer dari komponen hardware hingga siap digunakan dengan baik, termasuk instalasi OS dan driver.</p>
                 </div>
                 <div class="project-card">
-                    <h3>Instalasi Kabel Jaringan</h3>
-                    <p>Melakukan instalasi kabel jaringan LAN serta konfigurasi dasar jaringan.</p>
+                    <div class="project-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3><i class="fas fa-ethernet"></i> Instalasi Kabel Jaringan</h3>
+                    <p>Melakukan instalasi kabel jaringan LAN serta konfigurasi dasar jaringan untuk keperluan perkantoran dan lab.</p>
                 </div>
                 <div class="project-card">
-                    <h3>Topologi Jaringan</h3>
-                    <p>Memahami dan menerapkan berbagai topologi jaringan seperti star dan bus.</p>
+                    <div class="project-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3><i class="fas fa-sitemap"></i> Topologi Jaringan</h3>
+                    <p>Memahami dan menerapkan berbagai topologi jaringan seperti star, bus, dan ring dalam lingkungan simulasi.</p>
                 </div>
                 <div class="project-card">
-                    <h3>Website Sederhana</h3>
-                    <p>Membuat website sederhana menggunakan HTML dan CSS.</p>
+                    <div class="project-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3><i class="fas fa-code"></i> Website Sederhana</h3>
+                    <p>Membuat website responsif menggunakan HTML, CSS, dan JavaScript dengan desain yang modern dan user-friendly.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <footer>
-        © 2026 Rizky Kurniawan | Portofolio
+        <div class="footer-content">
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p class="copyright">© 2026 Rizky Kurniawan | Portofolio Modern</p>
+            <p style="margin-top: 10px; font-size: 0.85rem; opacity: 0.7;">Teknik Komputer dan Telekomunikasi | SMKS 1 Barunawati</p>
+        </div>
     </footer>
+
+    <script>
+        // Animasi scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animasi elemen saat scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animated');
+                    }
+                });
+            }, observerOptions);
+            
+            // Observasi elemen
+            document.querySelectorAll('.about, .projects, .project-card').forEach((el) => {
+                observer.observe(el);
+            });
+            
+            // Efek hover untuk project cards
+            const projectCards = document.querySelectorAll('.project-card');
+            projectCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.zIndex = '10';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.zIndex = '1';
+                });
+            });
+        });
+    </script>
 
 </body>
 </html>
-
