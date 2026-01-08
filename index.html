@@ -4,38 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofolio | Rizky Kurniawan</title>
-
     <style>
-        :root {
-            --primary: #0f172a;
-            --secondary: #2563eb;
-            --bg: #f8fafc;
-            --card: #ffffff;
-            --text: #1e293b;
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', 'Segoe UI', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background-color: var(--bg);
-            color: var(--text);
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
         }
 
-        /* Header */
         header {
-            background: var(--primary);
+            background: #0f172a;
             color: #fff;
-            padding: 80px 20px;
+            padding: 60px 20px;
             text-align: center;
         }
 
         header h1 {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             margin-bottom: 10px;
         }
 
@@ -44,105 +35,87 @@
             opacity: 0.9;
         }
 
-        /* Section */
         section {
-            max-width: 1100px;
-            margin: 50px auto;
+            max-width: 1000px;
+            margin: 40px auto;
             padding: 0 20px;
         }
 
-        .card {
-            background: var(--card);
+        .about, .projects {
+            background: #fff;
             padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            margin-bottom: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
         }
 
         h2 {
-            color: var(--primary);
             margin-bottom: 20px;
+            color: #0f172a;
         }
 
-        /* Projects */
-        .projects {
+        .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
         }
 
-        .project {
+        .project-card {
             background: #f1f5f9;
-            padding: 25px;
-            border-radius: 10px;
-            transition: 0.3s ease;
+            padding: 20px;
+            border-radius: 8px;
+            transition: 0.3s;
         }
 
-        .project:hover {
-            transform: translateY(-6px);
+        .project-card:hover {
+            transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-        }
-
-        .project h3 {
-            margin-bottom: 10px;
-            color: var(--secondary);
         }
 
         footer {
             text-align: center;
-            padding: 25px;
-            background: var(--primary);
+            padding: 20px;
+            background: #0f172a;
             color: #fff;
+            margin-top: 40px;
             font-size: 0.9rem;
-        }
-
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 2.2rem;
-            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
     <header>
         <h1>Rizky Kurniawan</h1>
         <p>Siswa Teknik Komputer dan Telekomunikasi<br>SMKS 1 Barunawati</p>
     </header>
 
-    <!-- About -->
     <section>
-        <div class="card">
+        <div class="about">
             <h2>Tentang Saya</h2>
             <p>
-                Saya adalah siswa jurusan <strong>Teknik Komputer dan Telekomunikasi</strong> 
-                di <strong>SMKS 1 Barunawati</strong>. Saya memiliki minat di bidang komputer, 
-                jaringan, dan pengembangan website. Terbiasa bekerja dengan rapi, teliti, 
-                dan bertanggung jawab dalam setiap tugas.
+                Saya adalah siswa jurusan <strong>Teknik Komputer dan Telekomunikasi</strong> di 
+                <strong>SMKS 1 Barunawati</strong>. Saya memiliki ketertarikan dalam bidang komputer, 
+                jaringan, dan pengembangan website. Saya terbiasa bekerja secara teliti, bertanggung jawab, 
+                dan siap belajar hal baru di dunia teknologi.
             </p>
         </div>
 
-        <!-- Projects -->
-        <div class="card">
+        <div class="projects">
             <h2>Projek yang Pernah Dilaksanakan</h2>
-            <div class="projects">
-                <div class="project">
+            <div class="projects-grid">
+                <div class="project-card">
                     <h3>Merakit PC</h3>
-                    <p>Merakit komputer dari pemasangan hardware hingga sistem siap digunakan.</p>
+                    <p>Merakit komputer dari komponen hardware hingga siap digunakan dengan baik.</p>
                 </div>
-
-                <div class="project">
+                <div class="project-card">
                     <h3>Instalasi Kabel Jaringan</h3>
-                    <p>Melakukan instalasi kabel LAN dan konfigurasi jaringan dasar.</p>
+                    <p>Melakukan instalasi kabel jaringan LAN serta konfigurasi dasar jaringan.</p>
                 </div>
-
-                <div class="project">
+                <div class="project-card">
                     <h3>Topologi Jaringan</h3>
-                    <p>Memahami dan menerapkan topologi jaringan seperti star dan bus.</p>
+                    <p>Memahami dan menerapkan berbagai topologi jaringan seperti star dan bus.</p>
                 </div>
-
-                <div class="project">
+                <div class="project-card">
                     <h3>Website Sederhana</h3>
                     <p>Membuat website sederhana menggunakan HTML dan CSS.</p>
                 </div>
@@ -150,10 +123,10 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         © 2026 Rizky Kurniawan | Portofolio
     </footer>
 
 </body>
 </html>
+
